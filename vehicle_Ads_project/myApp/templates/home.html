@@ -1,0 +1,307 @@
+{% extends 'base.html' %} {%load static %}{% block content %}
+<div class="container-fluid">
+  {% comment %}
+  <h1 class="m-4 fs-1 fw-bold">Welcome To VehicalAds.com,</h1>
+  {% endcomment %}
+  <div class="mt-1">
+    <div class="mt-1">
+      <div class="slide">
+        <img src="../static/images/my02.jpeg" width="100%" height="640px" />
+      </div>
+      {% comment %}
+      <div class="slide">
+        <img src="../static/images/my02.jpeg" width="100%" height="610px" />
+      </div>
+      <div class="slide">
+        <img src="../static/images/vehi.png" width="100%" height="610px" />
+      </div>
+      <div class="slide">
+        <img src="../static/images/vehi.png" width="100%" height="610px" />
+      </div>
+      {% endcomment %} {% comment %}
+      <div class="text-center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      {% endcomment %}
+    </div>
+  </div>
+
+  <div
+    class="search-section d-flex flex-column justify-content-end mt-5"
+    style="
+      background-image: url('{% static 'images/myimg.jpg' %}');
+      background-size: cover;
+      background-position: center;
+      height: 670px;
+    "
+  >
+    <form
+      action="{% url 'vehicle' 'All' %}"
+      method="POST"
+      class="shadow rounded-top-5 searchfrom"
+    >
+      <h1 class="text-center mb-4 text-light fw-bolder">
+        Find Your Future Vehicle With Ease
+      </h1>
+      {% csrf_token %}
+      <div class="row g-4">
+        <div class="col-md-4">{{ form.vehicle_type }}</div>
+        <div class="col-md-4">{{ form.vehicle_make }}</div>
+        <div class="col-md-4">{{ form.model }}</div>
+        <div class="col-md-3">{{ form.Min_manufacture_year }}</div>
+        <div class="col-md-3">{{ form.Max_manufacture_year }}</div>
+        <div class="col-md-3">{{ form.Min_price }}</div>
+        <div class="col-md-3">{{ form.Max_price }}</div>
+        <div class="text-center mb-5 pb-5">
+          <button type="submit" class="btn btn-success w-25 fw-bolder fs-5">
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fluid py-5 hello">
+    <h1 class="text-center fw-bolder mb-5 text-dark">
+      Categories by Vehicle Type
+    </h1>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a href="{% url 'vehicle' 'Car' %}" class="text-decoration-none">
+              <img
+                src="{% static 'images/image.png' %}"
+                alt="Buy Car"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+                loading="lazy"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Car</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a href="{% url 'vehicle' 'Van' %}" class="text-decoration-none">
+              <img
+                src="{% static 'images/camper-van.png' %}"
+                alt="Buy Van"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Van</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a href="{% url 'vehicle' 'SUV' %}" class="text-decoration-none">
+              <img
+                src="{% static 'images/jeep.png' %}"
+                alt="Buy SUV"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Jeep/SUV</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a
+              href="{% url 'vehicle' 'Motorcycle' %}"
+              class="text-decoration-none"
+            >
+              <img
+                src="{% static 'images/bike.png' %}"
+                alt="Buy Motorbike"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">MotorBike</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a
+              href="{% url 'vehicle' 'Three Wheel' %}"
+              class="text-decoration-none"
+            >
+              <img
+                src="{% static 'images/tuktuk.png' %}"
+                alt="Buy Tuk Tuk"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Tuk Tuk</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a href="{% url 'vehicle' 'Bus' %}" class="text-decoration-none">
+              <img
+                src="{% static 'images/bus.png' %}"
+                alt="Buy Bus"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Bus</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a href="{% url 'vehicle' 'Truck' %}" class="text-decoration-none">
+              <img
+                src="{% static 'images/truck.png' %}"
+                alt="Buy Lorry"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Lorry</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 block">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <a
+              href="{% url 'vehicle' 'Tractor' %}"
+              class="text-decoration-none"
+            >
+              <img
+                src="{% static 'images/tractor.png' %}"
+                alt="Buy Tractor"
+                class="img-fluid mb-3"
+                width="100"
+                height="150"
+              />
+              <h4 class="text-dark fw-bolder fs-4">Tractor</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="search-section d-flex flex-column justify-content-end text-white"
+    style="
+      background-image: url('{% static 'images/myimg1.jpg' %}');
+      background-size: cover;
+      background-position: center;
+      height: 650px;
+      width: full;
+      background-blend-mode: overlay;
+    "
+  >
+    <div class="searchfrom rounded-top-5 p-5">
+      <h1 class="display-3 fw-bolder mb-4 block">
+        Post Your Advertisements for Free
+      </h1>
+      <p class="mb-2 block fs-4 fw-semibold">
+        Posting an ad on <span class="fw-bold">VehicleAds</span> is completely
+        free! You can list your vehicle without any charges.
+      </p>
+      <p class="mb-2 block fs-4 fw-semibold">
+        You can post all types of vehicles, including cars, motorcycles, trucks,
+        and other vehicles. Reach thousands of potential buyers in just a few
+        clicks.
+      </p>
+      <a
+        href="{% url 'postads' %}"
+        class="btn btn-light btn-lg px-5 py-2 fw-bold shadow mt-5 rounded-4"
+        >Post Your Ad Now &nbsp;<i class="fa fa-arrow-right"></i
+      ></a>
+      <a
+        href="{% url 'register' %}"
+        class="btn btn-light btn-lg px-5 py-2 fw-bold shadow mt-5 ms-5 rounded-4"
+        >Register Now &nbsp;<i class="fa fa-arrow-right"></i
+      ></a>
+    </div>
+  </div>
+
+  <div class=" ">
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center fw-bolder fs-2 mb-4">Why Choose VehicleAds.com?</h2>
+    <div class="row text-center d-flex justify-content-center">
+      <div class="col-md-3 mb-4 shadow p-3 rounded-2 mx-3 bg-light">
+        <i class="fa fa-users fa-3x mb-3 text-success"></i>
+        <h4 class="fw-bold">Wide Audience</h4>
+        <p>Reach thousands of active buyers looking for vehicles daily.</p>
+      </div>
+
+      <div class="col-md-3 mb-4 shadow p-3 rounded-2 mx-3 bg-light">
+        <i class="fa fa-bullhorn fa-3x mb-3 text-primary"></i>
+        <h4 class="fw-bold">Free Advertisement</h4>
+        <p>Post your ad for free with no hidden charges or commissions.</p>
+      </div>
+
+      <div class="col-md-3 mb-4 shadow p-3 rounded-2 mx-3 bg-light">
+        <i class="fa fa-shield fa-3x mb-3 text-danger"></i>
+        <h4 class="fw-bold">Secure Platform</h4>
+        <p>
+          Your privacy is our priority. We provide a safe and secure
+          marketplace.
+        </p>
+      </div>
+
+      <div class="col-md-3 mb-4 shadow p-3 rounded-2 mx-3 bg-light">
+        <i class="fa fa-search fa-3x mb-3 text-dark"></i>
+        <h4 class="fw-bold">Detailed Vehicle Insights</h4>
+        <p>High-quality images and complete details for informed decisions.</p>
+      </div>
+
+      <div class="col-md-3 mb-4 shadow p-3 rounded-2 mx-3 bg-light">
+        <i class="fa fa-filter fa-3x mb-3 text-success"></i>
+        <h4 class="fw-bold">Customizable Search Filters</h4>
+        <p>Find your perfect match by refining your search criteria.</p>
+      </div>
+
+      <div class="col-md-3 mb-4 shadow p-3 rounded-2 mx-3 bg-light">
+        <i class="fa fa-headphones fa-3x mb-3 text-primary"></i>
+        <h4 class="fw-bold">Dedicated Support</h4>
+        <p>Our team is ready to assist you every step of the way.</p>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+  </div>
+</div>
+{% endblock %}

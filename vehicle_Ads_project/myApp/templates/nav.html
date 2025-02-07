@@ -1,0 +1,66 @@
+{%load static %}
+<nav class="navbar navbar-dark bg-success navbar-expand-lg">
+  <a href="{%url 'home'%}" class="navbar-brand mx-3 fw-bolder fs-4"
+    ><img src="{% static "images/vehicles.png" %}" width="180" height="50"
+    class=" ms-5 rounded-2"></a
+  >
+  <button
+    class="navbar-toggler"
+    data-bs-toggle="collapse"
+    data-bs-target="#nav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse ms-auto" id="nav">
+    <ul class="navbar-nav ms-auto me-5">
+      <li
+        class="nav-item ms-5 fw-bold fs-4 {% if request.path == '/' %}active2{% endif %}"
+      >
+        <a href="{%url 'home'%}" class="nav-link text-light">Home</a>
+      </li>
+      <li
+        class="nav-item ms-5 fw-bold fs-4 {% if request.path == '/vehicle/All/' or request.path == '/vehicle/Car/' or request.path == '/vehicle/Van/' or request.path == '/vehicle/Mortorcycle/' or request.path == '/vehicle/Three Wheel/' or request.path == '/vehicle/Bus/' or request.path == '/vehicle/Truck/' or request.path == '/vehicle/Other/' or request.path == '/vehicle/Tractor/' or request.path == '/vehicle/SUV/' or request.path == '/vehicle/reset/' %}active2{% endif %}"
+      >
+        <a href="{%url 'vehicle' 'All' %}" class="nav-link text-light"
+          >Vehicle</a
+        >
+      </li>
+      <li
+        class="nav-item ms-5 fw-bold fs-4 {% if request.path == '/postads' %}active2{% endif %}"
+      >
+        {%if user %}
+        <a href="{%url 'postads'%}" class="nav-link text-white">Post Ads</a>
+        {%else%}
+        <a href="{%url 'login'%}" class="nav-link text-white">Post Ads</a>
+        {%endif%} {%if user %} {%endif%}
+      </li>
+      <li
+        class="nav-item ms-5 fw-bold fs-4 {% if request.path == '/contact' or request.path == '/faq' or request.path == '/terms & conditions' or request.path == '/aboutus' %}active2{% endif %}"
+      >
+        <a href="{% url 'contact'%}" class="nav-link text-white">Contact</a>
+      </li>
+
+      <li
+        class="nav-item ms-5 fw-bold fs-3 {% if request.path == '/profile' %}active2{% endif %}"
+      >
+        <a class="nav-link text-light userprofile" id="userprofile">
+          <i class="fa fa-user-circle-o"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div
+  class="position-absolute p-3 border rounded-bottom-3 bg-white border-3 end-0 profilenav"
+>
+  <div class="row p-2 justify-content-center">
+    <a href="{% url 'logout' %}" class="btn btn-danger px-1 mx-3 mb-3"
+      >LogOut</a
+    >
+    <a href="{% url 'profile' %}" class="btn btn-success px-1 mx-3 mb-1"
+      >Profile</a
+    >
+  </div>
+</div>
+<script src="{% static 'js/nav.js' %}" crossorigin="anonymous"></script>

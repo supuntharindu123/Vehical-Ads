@@ -1,0 +1,217 @@
+{% extends "base.html" %} {% load static %}{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <h2 class="text-center mb-3 fw-bolder">Post Your Ad</h2>
+      <form
+        action="{% url 'postads' %}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="bg-light py-3 px-4 rounded shadow-sm mb-5"
+      >
+        {% csrf_token %}
+        <div class="row">
+          <!-- First Column -->
+          <div class="col-md-6 col-12 mb-3 px-4">
+            <label
+              for="{{ form.username.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.username.label }}
+            </label>
+            {{ form.username }}
+            <div class="text-danger small">{{ form.username.errors }}</div>
+
+            <label
+              for="{{ form.vehicle_type.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.vehicle_type.label }}
+            </label>
+            {{ form.vehicle_type }}
+            <div class="text-danger small">{{ form.vehicle_type.errors }}</div>
+
+            <label
+              for="{{ form.manufacture_year.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.manufacture_year.label }}
+            </label>
+            {{ form.manufacture_year }}
+            <div class="text-danger small">
+              {{ form.manufacture_year.errors }}
+            </div>
+
+            <label
+              for="{{ form.model.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.model.label }}
+            </label>
+            {{ form.model }}
+            <div class="text-danger small">{{ form.model.errors }}</div>
+
+            <label
+              for="{{ form.price.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.price.label }}
+            </label>
+            {{ form.price }}
+            <div class="text-danger small">{{ form.price.errors }}</div>
+
+            <label
+              for="{{ form.vehicle_condition.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.vehicle_condition.label }}
+            </label>
+            {{ form.vehicle_condition }}
+            <div class="text-danger small">
+              {{ form.vehicle_condition.errors }}
+            </div>
+
+            <label
+              for="{{ form.vehicle_make.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.vehicle_make.label }}
+            </label>
+            {{ form.vehicle_make }}
+            <div class="text-danger small">{{ form.vehicle_make.errors }}</div>
+
+            <label
+              for="{{ form.transmission.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.transmission.label }}
+            </label>
+            {{ form.transmission }}
+            <div class="text-danger small">{{ form.transmission.errors }}</div>
+
+            <label
+              for="{{ form.contact.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.contact.label }}
+            </label>
+            {{ form.contact }}
+            <div class="text-danger small">{{ form.contact.errors }}</div>
+            <label
+              for="{{ form.fuel_type.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.fuel_type.label }}
+            </label>
+            {{ form.fuel_type }}
+            <div class="text-danger small">{{ form.fuel_type.errors }}</div>
+
+            <label
+              for="{{ form.engine_capacity.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.engine_capacity.label }}
+            </label>
+            {{ form.engine_capacity }}
+            <div class="text-danger small">
+              {{ form.engine_capacity.errors }}
+            </div>
+            <label
+              for="{{ form.mileage.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.mileage.label }}
+            </label>
+            {{ form.mileage }}
+            <div class="text-danger small">{{ form.mileage.errors }}</div>
+          </div>
+
+          <!-- Second Column -->
+          <div class="col-md-6 col-12 mb-3 pe-4 ps-5">
+            <label
+              for="{{ form.info.id_for_label }}"
+              class="form-label mt-3 text-capitalize"
+            >
+              {{ form.info.label }}
+            </label>
+            {{ form.info }}
+            <div class="text-danger small">{{ form.info.errors }}</div>
+
+            <!-- Image Upload Fields -->
+            <label
+              for="{{ form.image01.id_for_label }}"
+              class="form-label mt-4 text-capitalize"
+            >
+              {{ form.image01.label }}
+            </label>
+            {{ form.image01 }}
+            <div class="text-danger small">{{ form.image01.errors }}</div>
+
+            <label
+              for="{{ form.image02.id_for_label }}"
+              class="form-label mt-4 text-capitalize"
+            >
+              {{ form.image02.label }}
+            </label>
+            {{ form.image02 }}
+            <div class="text-danger small">{{ form.image02.errors }}</div>
+
+            <label
+              for="{{ form.image03.id_for_label }}"
+              class="form-label mt-4 text-capitalize"
+            >
+              {{ form.image03.label }}
+            </label>
+            {{ form.image03 }}
+            <div class="text-danger small">{{ form.image03.errors }}</div>
+
+            <label
+              for="{{ form.image04.id_for_label }}"
+              class="form-label mt-4 text-capitalize"
+            >
+              {{ form.image04.label }}
+            </label>
+            {{ form.image04 }}
+            <div class="text-danger small">{{ form.image04.errors }}</div>
+
+            <label
+              for="{{ form.image05.id_for_label }}"
+              class="form-label mt-4 text-capitalize"
+            >
+              {{ form.image05.label }}
+            </label>
+            {{ form.image05 }}
+            <div class="text-danger small">{{ form.image05.errors }}</div>
+
+            <label
+              for="{{ form.image06.id_for_label }}"
+              class="form-label mt-4 text-capitalize"
+            >
+              {{ form.image06.label }}
+            </label>
+            {{ form.image06 }}
+            <div class="text-danger small">{{ form.image06.errors }}</div>
+            <div class="text-end mt-4">
+              <button
+                class="btn btn-success px-5 w-100 fs-6 fw-bolder"
+                type="submit"
+              >
+                Post
+              </button>
+            </div>
+            <div class="text-center mt-3">
+              <a
+                href="{% url 'vehicle' 'All'%}"
+                class="text-decoration-none fs-4 text-success fw-bold"
+                ><img
+                  class="w-75 mt-1 rounded-2 h-75"
+                  src="{% static 'images/vehicleads.png' %}"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

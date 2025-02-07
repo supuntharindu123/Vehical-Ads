@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="search-section mb-5">
+    <form
+      action="{% url 'vehicle' 'All' %}"
+      method="POST"
+      class="bg-light p-4 shadow rounded"
+    >
+      <h2 class="text-center mb-4">Find Your Perfect Vehicle</h2>
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-md-4">{{ form.vehicle_type }}</div>
+        <div class="col-md-4">{{ form.vehicle_make }}</div>
+        <div class="col-md-4">{{ form.model }}</div>
+        <div class="col-md-3">{{ form.Min_manufacture_year }}</div>
+        <div class="col-md-3">{{ form.Max_manufacture_year }}</div>
+        <div class="col-md-3">{{ form.Min_price }}</div>
+        <div class="col-md-3">{{ form.Max_price }}</div>
+        <div class="text-center mt-4">
+          <button
+            type="submit"
+            class="btn btn-success px-5 w-25 fw-bolder fs-5"
+          >
+            Search
+          </button>
+          <a
+            type="button"
+            class="btn btn-secondary px-5 w-25 fw-bolder fs-5"
+            id="resetBtn"
+            href="{% url 'vehicle' 'reset'%}"
+          >
+            Reset
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="collection">
+    {% if ads %}
+    <h3 class="mb-4">Car Collections</h3>
+    <div
+      class="d-flex flex-wrap justify-content-start align-content-center align-items-center"
+    >
+      {% for item in ads %}
+      <div class="block">
+        <div
+          class="vehicle d-flex align-items-center justify-content-center flex-column p-1 my-4 mx-3 shadow rounded-2 pb-3"
+        >
+          <img
+            src="{{ item.image01.url }}"
+            alt="{{ item.username }}"
+            class="imageclass rounded-2"
+            loading="lazy"
+            style="max-height: 200px; object-fit: cover"
+          />
+          <p
+            class="text-center mt-3 fw-bolder fs-4 px-3 pname text-capitalize vehiclename align-content-center"
+          >
+            <strong>{{ item.model }}</strong>&nbsp;<strong
+              >{{ item.manufacture_year }}</strong
+            >&nbsp;<strong>{{ item.vehicle_type }}</strong>
+          </p>
+          <span class="fs-4 fw-bold">Rs.{{ item.price }}.00</span>
+          <span class="fs-5"
+            ><span class="fw-semibold">Tel:&nbsp;</span>{{ item.contact }}</span
+          >
+          <a
+            class="btn btn-outline-dark m-1 px-4 w-75"
+            href="{% url 'view' item.pk %}"
+            >More Details</a
+          >
+          <span class="fs-6">{{ item.date|date:"d/m/Y" }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="mb-4 text-center fs-5 fw-bold text-danger">
+      🚗 No vehicles match your search. Please try again!
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

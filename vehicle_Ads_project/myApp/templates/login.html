@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 mb-5">
+      <h2 class="text-center mb-4">Login</h2>
+      <form
+        action="{% url 'login' %}"
+        method="POST"
+        class="bg-light p-4 rounded shadow-sm"
+      >
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="id_username" class="form-label">
+            <i class="fa fa-user me-2"></i>{{ form.username.label }}
+          </label>
+          {{ form.username }}
+          <div class="text-danger small">{{ form.username.errors }}</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password" class="form-label">
+            <i class="fa fa-lock me-2"></i>{{ form.password.label }}
+          </label>
+          {{ form.password }}
+          <div class="text-danger small">{{ form.password.errors }}</div>
+        </div>
+
+        <button class="btn btn-success w-100 mt-3" type="submit">
+          <i class="fa fa-sign-in-alt me-2"></i>Login
+        </button>
+
+        <p class="text-center mt-3 mb-0">
+          Don't have an account?
+          <a href="{% url 'register' %}" class="text-decoration-none">
+            Register
+          </a>
+        </p>
+        <!-- Forgot Password Link -->
+        <p class="text-center mt-2">
+          Forgot your password?
+          <a href="{% url 'password_reset' %}" class="text-decoration-none">
+            Reset it
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

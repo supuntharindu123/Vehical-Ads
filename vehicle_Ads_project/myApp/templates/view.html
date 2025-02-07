@@ -1,0 +1,302 @@
+{% extends 'base.html'%}{%load static%}{%block content%}
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      {% if viewvehicle.image01 %}
+      <div class="text-center mb-3 view justify-content-center">
+        <img
+          src="{{ viewvehicle.image01.url }}"
+          class="img-thumbnail border"
+          alt="Vehicle Image 1"
+          ondblclick="window.open('{{ viewvehicle.image01.url }}', '_blank');"
+        />
+      </div>
+      {%endif%} {% if viewvehicle.image02 %}
+      <div class="text-center mb-3 view justify-content-center">
+        <img
+          src="{{ viewvehicle.image02.url }}"
+          class="img-thumbnail border"
+          alt="Vehicle Image 2"
+          ondblclick="window.open('{{ viewvehicle.image02.url }}', '_blank');"
+        />
+      </div>
+      {%endif%} {% if viewvehicle.image03 %}
+      <div class="text-center mb-3 view justify-content-center">
+        <img
+          src="{{ viewvehicle.image03.url }}"
+          class="img-thumbnail border"
+          alt="Vehicle Image 3"
+          ondblclick="window.open('{{ viewvehicle.image03.url }}', '_blank');"
+        />
+      </div>
+      {%endif%} {% if viewvehicle.image04 %}
+      <div class="text-center mb-3 view justify-content-center">
+        <img
+          src="{{ viewvehicle.image04.url }}"
+          class="img-thumbnail border"
+          alt="Vehicle Image 4"
+          ondblclick="window.open('{{ viewvehicle.image04.url }}', '_blank');"
+        />
+      </div>
+      {%endif%} {% if viewvehicle.image05 %}
+      <div class="text-center mb-3 view justify-content-center">
+        <img
+          src="{{ viewvehicle.image05.url }}"
+          class="img-thumbnail border"
+          alt="Vehicle Image 5"
+          ondblclick="window.open('{{ viewvehicle.image05.url }}', '_blank');"
+        />
+      </div>
+      {%endif%} {% if viewvehicle.image06 %}
+      <div class="text-center mb-3 view justify-content-center">
+        <img
+          src="{{ viewvehicle.image06.url }}"
+          class="img-thumbnail border"
+          alt="Vehicle Image 6"
+          ondblclick="window.open('{{ viewvehicle.image06.url }}', '_blank');"
+        />
+      </div>
+      {%endif%}
+
+      <!-- Thumbnail Gallery -->
+      <div class="d-flex flex-wrap justify-content-center mt-4">
+        {% if viewvehicle.image01 %}
+        <img
+          src="{{ viewvehicle.image01.url }}"
+          class="me-1 mb-2 gal"
+          alt="Thumbnail 1"
+          onclick="showgallery(0)"
+        />
+        {%endif%} {% if viewvehicle.image02 %}
+        <img
+          src="{{ viewvehicle.image02.url }}"
+          class="me-1 mb-2 gal"
+          alt="Thumbnail 2"
+          onclick="showgallery(1)"
+        />
+        {%endif%} {% if viewvehicle.image03 %}
+        <img
+          src="{{ viewvehicle.image03.url }}"
+          class="me-1 mb-2 gal"
+          alt="Thumbnail 3"
+          onclick="showgallery(2)"
+        />
+        {%endif%} {% if viewvehicle.image04 %}
+        <img
+          src="{{ viewvehicle.image04.url }}"
+          class="me-1 mb-2 gal"
+          alt="Thumbnail 4"
+          onclick="showgallery(3)"
+        />
+        {%endif%} {% if viewvehicle.image05 %}
+        <img
+          src="{{ viewvehicle.image05.url }}"
+          class="me-1 mb-2 gal"
+          alt="Thumbnail 5"
+          onclick="showgallery(4)"
+        />
+        {%endif%} {% if viewvehicle.image06 %}
+        <img
+          src="{{ viewvehicle.image06.url }}"
+          class="me-1 mb-2 gal"
+          alt="Thumbnail 6"
+          onclick="showgallery(5)"
+        />
+        {%endif%}
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Vehicle Type:
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.vehicle_type }}</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Manufacture Year:
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.manufacture_year }}</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Vehicle Model:
+                <span class="fw-semibold fs-6 text-break text-capitalize"
+                  >{{ viewvehicle.model }}</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Transmission:
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.transmission }}</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Price (Rs.):
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.price }}.00</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Condition:
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.vehicle_condition }}</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Make:
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.vehicle_make }}</span
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="card shadow p-3 helo">
+              <p class="fw-bold fs-5 mb-0">
+                Fuel Type:
+                <span class="fw-semibold fs-6 text-break"
+                  >{{ viewvehicle.fuel_type }}</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <div class="card shadow p-3 helo">
+          <p class="fw-bold fs-5 mb-0">
+            Engine Capacity:
+            <span class="fw-semibold fs-6 text-break"
+              >{{ viewvehicle.engine_capacity }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <div class="card shadow p-3 helo">
+          <p class="fw-bold fs-5 mb-0">
+            Mileage(km):
+            <span class="fw-semibold fs-6 text-break"
+              >{{ viewvehicle.mileage }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <div class="card shadow p-3 helo">
+          <p class="fw-bold fs-5 mb-0">
+            Conatct:
+            <span class="fw-semibold fs-6 text-break"
+              >{{ viewvehicle.contact }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <div class="card shadow p-3 helo">
+          <p class="fw-bold fs-5 mb-0">
+            Date:
+            <span class="fw-semibold fs-6 text-break"
+              >{{ viewvehicle.date|date:"d/m/Y"}}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    {% if viewvehicle.info%}
+    <div class="col-lg-12">
+      <div class="mb-3">
+        <div class="card shadow p-3 helo">
+          <p class="fw-bold fs-5 mb-0">
+            More information:
+            <span class="fw-semibold fs-6 text-break"
+              >{{ viewvehicle.info }}</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    {%endif%}
+    <br />
+    <br />
+    {% if recent %}
+    <h5>Related Ads</h5>
+    <div class="d-flex flex-wrap">
+      {%for item in recent%} {%if item.pk != viewvehicle.pk %}
+      <div class="block">
+        <div
+          class="vehicle d-flex align-items-center justify-content-center flex-column p-1 my-4 mx-3 shadow rounded-2 pb-3"
+        >
+          <img
+            src="{{ item.image01.url }}"
+            alt="{{item.username}}"
+            class="imageclass rounded-2"
+          />
+          <p
+            class="text-center mt-3 fw-bolder fs-4 px-3 pname text-capitalize vehiclename align-content-center"
+          >
+            <strong>{{item.model}}</strong
+            >&nbsp;<strong>{{item.manufacture_year}}</strong>&nbsp;<strong
+              >{{item.vehicle_type}}</strong
+            >
+          </p>
+
+          <span class="fs-4 fw-bold">Rs.{{item.price}}.00</span>
+          <span class="fs-5"
+            ><span class="fw-semibold">Tel:&nbsp;</span>{{item.contact}}</span
+          >
+          <a
+            class="btn btn-outline-dark m-1 px-4 w-75"
+            href="{% url 'view' item.pk%}"
+            >More Details</a
+          >
+          <span class="fs-6 text-secondary mt-2"
+            >Post on {{item.date|date:"d/m/Y" }}</span
+          >
+        </div>
+      </div>
+      {%endif%} {%endfor%}
+    </div>
+    {%endif%}
+  </div>
+</div>
+<script src="{% static 'js/vehicle.js' %}" crossorigin="anonymous"></script>
+{%endblock%}

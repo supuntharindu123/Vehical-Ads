@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {%load static %}{% block content %}
+<div class="container mb-5">
+  <h1 ><span class="text-capitalize fw-bold fs-2">Welcome Back, </span>&nbsp;<span class="fs-1 text-capitalize text-success fw-bolder">{{user.username}}</span></h1>
+  <div class="row">
+    <div class="col-lg-2 mt-5 shadow pt-5 px-3 rounded-3 pb-2 profilecol">
+        <a class=" btn border text-decoration-none text-dark fw-bold w-100 mb-4 btn-white profilebtn px-0" href={% url 'postads'%}>Post Ads</a>
+        <a class=" text-decoration-none text-dark fw-bold btn border w-100 mb-4 btn-white profilebtn px-0" href={% url 'updateuser'%}>Update Profile</a>
+        <a class=" text-decoration-none text-dark fw-bold btn border w-100 mb-4 btn-white profilebtn px-0" href={% url 'pwdReset'%}>Reset Password</a>
+        <a class=" text-decoration-none text-dark fw-bold btn border w-100 mb-4 btn-white profilebtn px-0" href={% url 'deleteuser'%} id="deleteuser">Delete Account</a>
+        <a class=" text-decoration-none text-dark fw-bold btn border w-100 mb-4 btn-white profilebtn px-0" href={% url 'logout'%} id="logout">Logout</a>
+
+
+        <div class="p-2"><img class="w-100 mt-5 shadow rounded-2" src="{% static 'images/vehicleads.png' %}"></div>
+    </div>
+    {% if userpost %}
+    <div class="col-lg-10 d-flex flex-wrap justify-content-start p-5">
+      
+        {% for item in userpost%}
+        <div class="block">
+            <div
+            class="vehicle d-flex align-items-center justify-content-center flex-column p-1 m-4 shadow rounded-2 pb-3"
+          >
+            <img
+              src="{{ item.image01.url }}"
+              alt="{{item.username}}"
+              class="imageclass rounded-2"
+            />
+            <p
+              class="text-center mt-3 fw-bolder fs-4 px-3 pname text-capitalize vehiclename align-content-center"
+            >
+              <strong>{{item.model}}</strong
+              >&nbsp;<strong>{{item.manufacture_year}}</strong>&nbsp;<strong
+                >{{item.vehicle_type}}</strong
+              >
+            </p>
+            
+            <span class="fs-4 fw-bold">Rs.{{item.price}}.00</span>
+            <span class="fs-5"
+              ><span class="fw-semibold">Tel:&nbsp;</span>{{item.contact}}</span
+            >
+            <span class="fs-6">{{item.date|date:"d/m/Y" }}</span>
+           
+            <a class="btn btn-outline-dark m-1 px-4 w-75" href="{% url 'view' item.pk%}">More Details</a>
+            <div class="d-flex justify-content-center w-75">
+                <a class="btn btn-outline-primary m-1 px-4 w-75" href="{% url 'updatepost' item.pk%}">Edit</a>
+
+                <a class="btn btn-outline-danger m-1 px-4 w-75 deletebtn" href="{% url 'deletepost' item.pk %}" data-url="{% url 'deletepost' item.pk %}" id="deletebtn">Delete</a>
+
+            </div>
+            
+          </div>
+        </div>
+        {%endfor%}
+        
+    </div>
+    {% else %}
+    <div class="col-lg-10 d-flex flex-wrap align-content-center p-5 justify-content-center">Post Your Ads</div>
+    {% endif %}
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/profile.js' %}" crossorigin="anonymous"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+{% endblock %}

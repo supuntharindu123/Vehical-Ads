@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<div class="container my-5">
+  <div class="row g-4 align-items-center">
+    <!-- Contact Information Section -->
+    <div class="col-lg-6 col-md-12">
+      <div class="p-4 rounded">
+        <h3 class="text-center text-success fw-bold">Email:</h3>
+        <p class="text-center text-dark fs-5 fw-semibold">
+          vehicleAds@gmail.com
+        </p>
+
+        <h3 class="text-center text-success mt-4 fw-bold">Contact Number:</h3>
+        <p class="text-center text-dark fs-5 fw-semibold">
+          0474955666 (8.00AM-5.00PM)
+        </p>
+
+        <h3 class="text-center text-success mt-4 fw-bold">Follow Us:</h3>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <a href="#" class="btn btn-outline-success rounded-circle shadow">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a href="#" class="btn btn-outline-success rounded-circle shadow">
+            <i class="fa fa-google"></i>
+          </a>
+          <a href="#" class="btn btn-outline-success rounded-circle shadow">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-outline-success rounded-circle shadow">
+            <i class="fa fa-youtube"></i>
+          </a>
+        </div>
+
+        <div class="text-center mt-4">
+          <a href="{% url 'faq'%}" class="fs-4 text-success fw-bold"
+            >Visit FAQ Section</a
+          >
+        </div>
+        <div class="text-center mt-2">
+          <a href="{% url 'postads'%}" class="fs-4 text-success fw-bold"
+            >Post Your Ad free</a
+          >
+        </div>
+        <div class="text-center mt-3">
+          <a
+            href="{% url 'vehicle' 'All'%}"
+            class="text-decoration-none fs-4 text-success fw-bold"
+            ><img
+              class="w-50 mt-1 rounded-2"
+              src="{% static 'images/vehicleads.png' %}"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="col-lg-6 col-md-12">
+      <div class="p-4 shadow rounded bg-white">
+        <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="id_username" class="form-label text-success fw-bold">
+              {{ form.username.label }}
+            </label>
+            {{ form.username }}
+            <div class="text-danger small">{{ form.username.errors }}</div>
+          </div>
+          <div class="mb-3">
+            <label for="id_email" class="form-label text-success fw-bold">
+              {{ form.email.label }}
+            </label>
+            {{ form.email }}
+            <div class="text-danger small">{{ form.email.errors }}</div>
+          </div>
+          <div class="mb-3">
+            <label for="id_message" class="form-label text-success fw-bold">
+              {{ form.message.label }}
+            </label>
+            {{ form.message }}
+            <div class="text-danger small">{{ form.message.errors }}</div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-success w-100 mt-3 fw-bold shadow"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

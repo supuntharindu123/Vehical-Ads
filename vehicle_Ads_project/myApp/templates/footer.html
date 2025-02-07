@@ -1,0 +1,149 @@
+{%load static %}
+<footer class="bg-success p-5">
+  <div class="">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h3 class="text-white text-center mb-3 fw-bolder">Overview</h3>
+        <ul class="list-unstyled text-center">
+          <li>
+            <a
+              href="{% url 'contact'%}"
+              class="text-white text-decoration-none fs-5"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a href="{%url 'faq'%}" class="text-white text-decoration-none fs-5"
+              >FAQ</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'aboutus'%}"
+              class="text-white text-decoration-none fs-5"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'terms'%}"
+              class="text-white text-decoration-none fs-5"
+              >Terms & Conditions</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h3 class="text-white text-center mb-3 fw-bolder">Categories</h3>
+        <ul class="list-unstyled text-center">
+          <li>
+            <a
+              href="{%url 'vehicle' 'Car'%}"
+              class="text-white text-decoration-none fs-5"
+              >Cars</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Van'%}"
+              class="text-white text-decoration-none fs-5"
+              >Vans</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Motorcycle'%}"
+              class="text-white text-decoration-none fs-5"
+              >Motor Bikes</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Three Wheel'%}"
+              class="text-white text-decoration-none fs-5"
+              >ThreeWheel</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'SUV'%}"
+              class="text-white text-decoration-none fs-5"
+              >SUV/Jeep</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Truck'%}"
+              class="text-white text-decoration-none fs-5"
+              >Lorry</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Bus'%}"
+              class="text-white text-decoration-none fs-5"
+              >Bus</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Tractor'%}"
+              class="text-white text-decoration-none fs-5"
+              >Tractor</a
+            >
+          </li>
+          <li>
+            <a
+              href="{%url 'vehicle' 'Other'%}"
+              class="text-white text-decoration-none fs-5"
+              >Other</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 mb-4 text-center">
+        <h3 class="text-white fw-bolder mb-3">Follow Us</h3>
+        <div class="d-flex justify-content-center gap-3 mt-3">
+          <a
+            href="#"
+            class="btn btn-outline-light rounded-circle shadow"
+            aria-label="Facebook"
+          >
+            <i class="fa fa-facebook fs-5"></i>
+          </a>
+          <a
+            href="#"
+            class="btn btn-outline-light rounded-circle shadow"
+            aria-label="Google"
+          >
+            <i class="fa fa-google"></i>
+          </a>
+          <a
+            href="#"
+            class="btn btn-outline-light rounded-circle shadow"
+            aria-label="Twitter"
+          >
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a
+            href="#"
+            class="btn btn-outline-light rounded-circle shadow"
+            aria-label="YouTube"
+          >
+            <i class="fa fa-youtube"></i>
+          </a>
+        </div>
+        <a href="{%url 'home' %}">
+          <img src="{% static "images/vehicles.png" %}" width="150" class="mt-5
+          rounded-2">
+        </a>
+      </div>
+    </div>
+    <hr class="text-white" />
+    <div class="text-center text-white fw-semibold shadow p-3 mt-3 rounded-2">
+      Copyright © 2025 VehicleAds.com, All Rights Reserved.
+    </div>
+  </div>
+</footer>
